@@ -1,0 +1,41 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+	<div class="row">
+		<div class="col-8">
+			<div class="row">
+				{% for item in 0..5 %}
+					<div class=" col-4 mb-2">
+						<div class="card">
+							<div class="card-body">
+								<h4 class="card-title">Card title</h4>
+								<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+								<a href="#" class="card-link">Card link</a>
+								<a href="#" class="card-link">Another link</a>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div class=" h-100 d-flex align-items-center justify-content-center">
+						<a href class="btn btn-primary">Browse all</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-4">
+			{{ render(controller('App\\Controller\\CategoryController::categoriesMenu')) }}
+		</div>
+	</div>
+{% endblock content %}
+{% block important %}
+	<div class="jumbotron">
+		<h1 class="display-4">Hello, world!</h1>
+		<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+		<hr class="my-4">
+		<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+		<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+	</div>
+{% endblock %}

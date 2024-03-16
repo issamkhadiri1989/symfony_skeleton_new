@@ -1,0 +1,16 @@
+{% macro show(arguments) %}
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="{{ url('app_homepage') }}">Home</a>
+		</li>
+		{% for item in arguments %}
+			<li class="breadcrumb-item {{ item.isActive is same as(true) ? 'active' : '' }}">
+				{% if item.path.target is defined and item.path.target %}
+					<a href="{{ item.path.target}}">{{ item.path.text }}</a>
+				{% else %}
+					{{ item.path.text }}
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ol>
+{% endmacro %}

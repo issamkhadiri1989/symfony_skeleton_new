@@ -1,0 +1,36 @@
+{% extends 'layout.html.twig' %}
+{% form_theme form _self %}
+{% block _favorite_favorites_entry_row %}
+	{% set offer = form.vars.value %}
+	<div class="col-3">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">
+                    {{ offer.title | upper }}
+                </h4>
+				<h6 class="card-subtitle mb-2 text-muted">
+                    <label class="badge rounded-pill bg-primary">{{ offer.category.name }}</label>
+                </h6>
+				<a href="#" class="card-link">{{ form_row(form, {attr: {'class': ''}}) }}</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block content %}
+	{{ form_start(form) }}
+	<div class='row mt-2 mb-2'>
+		{% for child in form.favorites %}
+			{{ form_row(child) }}
+		{% endfor %}
+	</div>
+
+	<button class="btn btn-success">Edit</button>
+	{{ form_end(form) }}
+{% endblock %}
+{% block _favorite_favorites_entry_select_row %}
+	<label class="custom-checkbox">
+		{{ form_widget(form) }}
+		<span class="checkmark"></span>
+	</label>
+{% endblock %}

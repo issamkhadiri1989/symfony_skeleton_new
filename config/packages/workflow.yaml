@@ -1,0 +1,45 @@
+framework:
+    workflows: 
+        smart_job:
+            type: 'state_machine'
+            marking_store: 
+                type: 'method'
+                property: 'status'
+            supports:
+                - App\Entity\Application
+            initial_marking: init
+            places:
+                - init
+                - posted
+                - reviewed
+                - rejected
+                - interview_scheduled
+                - schedule_hr_interview
+                - hr_proposal
+                - accepted
+                - contract
+            transitions:
+                post_application:
+                    from: init
+                    to: posted
+                to_review:
+                    from: posted
+                    to: reviewed
+                to_reject:
+                    from: [reviewed, interview_scheduled, hr_proposal, schedule_hr_interview]
+                    to: rejected
+                schedule_interview:
+                    from: reviewed
+                    to: interview_scheduled
+                schedule_hr_interview:
+                    from: interview_scheduled
+                    to: hr_proposal
+                make_proposal:
+                    from: hr_proposal
+                    to: contract
+                contract:
+                    from: hr_proposal
+                    to: accepted
+                retry_proposal:
+                    from: rejected
+                    to: hr_proposal

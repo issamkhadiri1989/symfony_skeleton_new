@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+{% form_theme form 'forms/job_application.html.twig' %}
+{% block title %}
+	{{ offer.title | upper }}
+{% endblock title %}
+
+{% block content %}
+	<h1>{{ offer.title | upper }}</h1>
+	<div class="row">
+		<div class="col-12">
+			<div class="row">
+				{{ offer.fullDescription | raw }}
+			</div>
+			<div class="row">
+				{{ form_start(form) }}
+				{{ form_row(form) }}
+				<button type="submit" class="btn btn-success">Success</button>
+				{{ form_end(form) }}
+			</div>
+		</div>
+	</div>
+{% endblock content %}

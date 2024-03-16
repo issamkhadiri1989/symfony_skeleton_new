@@ -1,0 +1,11 @@
+<div class="card">
+	<div class="card-body">
+		<h4 class="card-title">{{ offer.title }}</h4>
+		<h6 class="card-subtitle mb-2 text-muted">{{ offer.category.name | upper }}</h6>
+		<p class="card-text">
+			{{ offer.shortDescription }}
+		</p>
+		<a href="#" class="card-link">Card link</a>
+		<a href="{{ path('app_offer', {'slugCategory': offer.category.slug, 'slug': offer.slug}) }}" class="card-link">Browse Offer</a>
+	</div>
+</div>

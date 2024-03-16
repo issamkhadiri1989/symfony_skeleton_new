@@ -1,0 +1,42 @@
+{% block _application_row %}
+	<div class="row">
+		<div class="col-6">
+			<div class="row">
+				{{ form_label(form.firstName) }}
+				<div class="col-sm-12">
+					{{ form_widget(form.firstName, {attr: {'placeholder': 'First Name'}}) }}
+					{{ form_errors(form.firstName) }}
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="row">
+				{{ form_label(form.lastName) }}
+				<div class="col-sm-12">
+					{{ form_widget(form.lastName, {attr: {'placeholder': 'Last Name'}}) }}
+					{{ form_errors(form.lastName) }}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-12">
+			{{ form_label(form.comment) }}
+			<div class="col-sm-12">
+				{{ form_widget(form.comment, {attr: {'placeholder': 'Write a comment to the recruiter'}}) }}
+				{{ form_errors(form.comment) }}
+			</div>
+		</div>
+	</div>
+    
+    <div class="row">
+		<div class="col-12">
+			{{ form_label(form.attachment_file) }}
+			<div class="col-sm-12">
+				{{ form_widget(form.attachment_file) }}
+				{{ form_errors(form.attachment_file) }}
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -16,13 +16,6 @@ enter:
 ps:
 	docker-compose ps
 
-init: stop start
-	docker-compose exec server composer self-update
-	rm -Rf $(SDIR)
-	mkdir $(SDIR)
-	docker-compose exec server composer create-project symfony/skeleton:$(SYMFONY_VERSION) .
-	docker-compose exec server composer require webapp
-
 install: install-packages install-database
 
 install-packages:

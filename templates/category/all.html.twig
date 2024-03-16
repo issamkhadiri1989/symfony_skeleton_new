@@ -1,0 +1,58 @@
+{% extends 'layout.html.twig' %}
+{% import 'macro/breadcrumb.html.twig' as breadcrumb %}
+{% block title %}
+All offers
+{% endblock %}
+{% block important %}
+	{{ breadcrumb.show([
+		{
+			path: {text: 'All offers'},
+			isActive: true,
+		}
+	])}}
+{% endblock %}
+{% block content %}
+
+	<div class="row">
+		<div class="col-12">
+			<div class="row">
+				{% for item in offers %}
+					<div class=" col-4 mb-2">
+						{{ include('partials/_offer_item.html.twig', {offer: item}) }}
+					</div>
+				{% endfor %}
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div class=" h-100 d-flex align-items-center justify-content-center">
+						<div>
+						<ul class="pagination pagination-lg">
+							<li class="page-item disabled">
+								<a class="page-link" href="#">&laquo;</a>
+							</li>
+							<li class="page-item active">
+								<a class="page-link" href="#">1</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">2</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">3</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">4</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">5</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">&raquo;</a>
+							</li>
+						</ul>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
